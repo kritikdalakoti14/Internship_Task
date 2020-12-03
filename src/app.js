@@ -2,6 +2,7 @@ const express=require('express')
 const { use } = require('./router/user')
 require('./db/db')  //connecting with database
 const bodyparser=require('body-parser')
+const path=require('path')
 const app=express()
 
 const port=3000||process.env.PORT
@@ -15,10 +16,10 @@ app.use('/user',Userrouter)
 
 
 app.get('/',(req,res)=>{
-    res.sendFile('/Kritik_Dalakoti/src/public/index.html')
+    res.sendFile(path.join(__dirname,'../public/index.html'))
 })
 
-app.listen(3000,(req,res)=>{
+app.listen(port,(req,res)=>{
     console.log(`server is up at ${port}` )
 })
 

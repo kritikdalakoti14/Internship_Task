@@ -1,6 +1,7 @@
 const express=require('express')
 const User=require('../models/User')
 const router=express.Router()
+const path=require('path')
 
 router.post('/data',async (req,res)=>{
     
@@ -10,7 +11,7 @@ router.post('/data',async (req,res)=>{
     console.log(req.body)
     const user=new User(req.body)
     await user.save()
-    res.sendFile('/Kritik_Dalakoti/src/public/redirect.html')
+    res.sendFile(path.join(__dirname,'../public/index.html'))
 })
 
 router.get('/data',async(req,res)=>{
