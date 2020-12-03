@@ -1,5 +1,5 @@
 const express=require('express')
-const { use } = require('./router/user')
+
 require('./db/db')  //connecting with database
 const bodyparser=require('body-parser')
 const path=require('path')
